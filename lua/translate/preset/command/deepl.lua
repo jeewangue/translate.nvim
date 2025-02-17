@@ -36,45 +36,79 @@ function M._cmd(url, lines, command_args)
 end
 
 function M.complete_list(is_target)
-  -- See <https://www.deepl.com/docs-api/translating-text/>
-  local list = {
-    "BG",
-    "CS",
-    "DA",
-    "DE",
-    "EL",
-    "EN",
-    "ES",
-    "ET",
-    "FI",
-    "FR",
-    "HU",
-    "IT",
-    "JA",
-    "LT",
-    "LV",
-    "NL",
-    "PL",
-    "PT",
-    "RO",
-    "RU",
-    "SK",
-    "SL",
-    "SV",
-    "ZH",
-  }
-
+  -- See <https://www.deepl.com/docs-api/translating-text/>, <https://developers.deepl.com/docs/resources/supported-languages>
   if is_target then
-    local append = {
-      "EN-GB",
-      "EN-US",
-      "PT-PT",
-      "PT-BR",
+    -- Translation target languages based on DeepL API docs
+    return {
+      "AR",
+      "BG",
+      "CS",
+      "DA",
+      "DE",
+      "EL",
+      "EN-GB", -- English (British)
+      "EN-US", -- English (American)
+      "ES",
+      "ET",
+      "FI",
+      "FR",
+      "HU",
+      "ID",
+      "IT",
+      "JA",
+      "KO",
+      "LT",
+      "LV",
+      "NB", -- Norwegian Bokmål
+      "NL",
+      "PL",
+      "PT-BR", -- Portuguese (Brazilian)
+      "PT-PT", -- Portuguese (excluding Brazilian)
+      "RO",
+      "RU",
+      "SK",
+      "SL",
+      "SV",
+      "TR",
+      "UK",
+      "ZH-HANS", -- Chinese (simplified)
+      "ZH-HANT", -- Chinese (traditional)
     }
-    list = vim.list_extend(list, append)
+  else
+    -- Translation source languages based on DeepL API docs
+    return {
+      "AR",
+      "BG",
+      "CS",
+      "DA",
+      "DE",
+      "EL",
+      "EN",
+      "ES",
+      "ET",
+      "FI",
+      "FR",
+      "HU",
+      "ID",
+      "IT",
+      "JA",
+      "KO",
+      "LT",
+      "LV",
+      "NB", -- Norwegian Bokmål
+      "NL",
+      "PL",
+      "PT",
+      "RO",
+      "RU",
+      "SK",
+      "SL",
+      "SV",
+      "TR",
+      "UK",
+      "ZH",
+    }
   end
-
-  return list
 end
 
 return M
